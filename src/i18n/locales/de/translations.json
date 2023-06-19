@@ -3,5 +3,8 @@
   "view": "Ansicht:",
   "clock": "Uhr",
   "Tickets from": "Tickets ab",
-  "To the tickets":"Zu den Tickets"
+  "To the tickets": "Zu den Tickets",
+  "at": "Am",
+  "to": "ab",
+  "There is no results": "Es liegen keine Ergebnisse vor"
 }
