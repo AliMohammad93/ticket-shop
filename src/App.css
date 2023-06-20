@@ -2,3 +2,38 @@
     font-family: 'Vazirmatn';
     src: local('Vazirmatn'), url('/src/fonts/Vazirmatn-VariableFont_wght.ttf') format('truetype');
 }
+
+
+:root {
+    --fc-button-text-color: #989898;
+    --fc-button-bg-color: #fff;
+    --fc-button-border-color: #fff;
+    --fc-button-hover-bg-color: #fff;
+    --fc-button-hover-border-color: #fff;
+    --fc-button-active-bg-color: #fff;
+    --fc-button-active-text-color: #fff;
+    --fc-button-active-border-color: #fff;
+    --fc-today-bg-color:#fff
+}
+
+.fc-button {
+    box-shadow: none !important;
+}
+
+.fc .fc-button-primary {
+    color: #000;
+}
+
+
+.fc-toolbar h2 {
+    display: inline;
+    font-size: 15px !important;
+    font-family: Vazirmatn;
+}
+
+.fc-daygrid-event , .fc-timegrid-event   {
+    white-space: normal !important;
+    align-items: normal !important;
+    background:#54E9C5;
+}
+
