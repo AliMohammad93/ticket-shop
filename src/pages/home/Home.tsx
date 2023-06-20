@@ -25,8 +25,6 @@ const Home: React.FC = () => {
         item.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-
-
     return (
         <Container>
             <Box sx={{ flexGrow: 1 }}>

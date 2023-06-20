@@ -5,7 +5,6 @@ interface TabPanelProps {
     index: number;
     value: number;
 }
-
 const TabPanel: React.FC<TabPanelProps> = ({children, value, index, ...other}) => {
     return (
         <div
@@ -16,7 +15,7 @@ const TabPanel: React.FC<TabPanelProps> = ({children, value, index, ...other}) =
             aria-labelledby={`simple-tab-${index}`}
             {...other}>
             {value === index && (
-                <Box sx={{mt:4 }}>
+                <Box sx={{mt:1 }}>
                     {children}
                 </Box>
             )}
