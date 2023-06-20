@@ -36,37 +36,39 @@ const CustomTab = styled(Tab)(({theme}) => ({
 interface ViewActionsProps {
     value: number,
     handleChange: (event: React.SyntheticEvent, value: number) => void;
-    searchTerm:string,
+    searchTerm: string,
     setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const TapActions: React.FC<ViewActionsProps> = ({value, handleChange , searchTerm, setSearchTerm}) => {
+const TapActions: React.FC<ViewActionsProps> = ({value, handleChange, searchTerm, setSearchTerm}) => {
     const {t} = useTranslation();
+    console.log(value)
     return (
         <>
             <Grid xs={12} md={6}>
-                <Box sx={{textAlign: {xs: 'center', md: 'left'}, mb: {xs: 2, md: 0}}}>
-                    <Typography variant='body1' sx={{fontWeight: 'bold'}}>{t('Tickets for Bootshaus')}</Typography>
-                </Box>
-
+                {value === 2 ? null : (
+                    <Box sx={{textAlign: {xs: 'center', md: 'left'}, mb: {xs: 2, md: 0}}}>
+                        <Typography variant='body1' sx={{fontWeight: 'bold'}}>{t('Tickets for Bootshaus')}</Typography>
+                    </Box>)}
             </Grid>
             <Grid item xs={12} md={6}>
                 <Box display="flex" flexDirection="row" alignItems="center" justifyContent="flex-end" gap={1}>
-                    <Paper
-                        component="form"
-                        sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            backgroundColor: 'info.main',
-                            width: '40%',
-                            height: '30%',
-                            boxShadow: 0
-                        }}>
-                        <IconButton type="button" aria-label="search">
-                            <SearchIcon fontSize='small'/>
-                        </IconButton>
-                        <InputBase onChange={event => setSearchTerm(event.target.value)}/>
-                    </Paper>
+                    {value === 2 ? null : (
+                        <Paper
+                            component="form"
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                backgroundColor: 'info.main',
+                                width: '40%',
+                                height: '30%',
+                                boxShadow: 0
+                            }}>
+                            <IconButton type="button" aria-label="search">
+                                <SearchIcon fontSize='small'/>
+                            </IconButton>
+                            <InputBase onChange={event => setSearchTerm(event.target.value)}/>
+                        </Paper>)}
                     <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
                         <Typography variant='caption'>{t('view')}</Typography>
                         <CustomTabs value={value} onChange={handleChange} aria-label="icon tabs example">

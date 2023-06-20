@@ -45,7 +45,7 @@ const Home: React.FC = () => {
                             <List data={filteredData}/>
                         </TabPanel>
                         <TabPanel value={value} index={2}>
-                            <Calendar/>
+                            <Calendar data={data}/>
                         </TabPanel>
                     </Grid>
                 </Grid>
