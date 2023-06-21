@@ -1,8 +1,7 @@
 import React from 'react';
-import Button from '@mui/material/Button';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import {useTranslation} from "react-i18next";
-import {Typography, Box} from "@mui/material";
+import {Typography, Button} from "@mui/material";
 
 const CustomButton: React.FC = () => {
     const {t} = useTranslation();
