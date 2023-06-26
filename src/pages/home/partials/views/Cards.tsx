@@ -12,6 +12,7 @@ import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';
 import {useTranslation} from "react-i18next";
+
 import CustomButton from "../../../../components/CustomButton";
 
 interface CardsProps {
@@ -19,12 +20,11 @@ interface CardsProps {
 }
 
 const Cards: React.FC<CardsProps> = ({data}) => {
-    console.log(data);
     const {t} = useTranslation();
     const formatDate = useFormattedDate();
     const formatTime = useFormattedTime();
     return (
-        <Grid container spacing={4} mb={4}>
+        <Grid container spacing={4} mb={4} title={'cards'}>
             {data?.map((event, index) => (
                 <Grid item xs={12} key={index}>
                     <Card elevation={0}>
@@ -71,8 +71,7 @@ const Cards: React.FC<CardsProps> = ({data}) => {
                                     {event.priceFrom > 0 && (
                                         <Box sx={{display: 'flex', flexDirection: 'row'}} gap={1}>
                                             <ConfirmationNumberOutlinedIcon fontSize='small'/>
-                                            <Typography variant="caption"
-                                                        gutterBottom>{t('Tickets from')} {event.priceFrom}€</Typography>
+                                            <Typography variant="caption" gutterBottom>{t('Tickets from')} {event.priceFrom}€</Typography>
                                         </Box>
                                     )}
                                 </CardContent>
@@ -84,7 +83,7 @@ const Cards: React.FC<CardsProps> = ({data}) => {
                                         md: 'flex-end'
                                     }
                                 }}>
-                                    <CustomButton/>
+                                    <CustomButton shopUrl={event.shopUrl}/>
                                 </CardActions>
                             </Grid>
                         </Grid>

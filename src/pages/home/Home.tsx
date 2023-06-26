@@ -10,7 +10,7 @@ import {fetchData} from "./utils/apiService";
 import {IEvent} from "./interfaces/Events";
 
 const Home: React.FC = () => {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState<number>(0);
     const [searchTerm, setSearchTerm] = useState<string>("");
     const [data, setData] = useState<IEvent[]>([]);
     const handleChange = (event: SyntheticEvent, newValue: number) => {

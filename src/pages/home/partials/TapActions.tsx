@@ -33,19 +33,18 @@ const CustomTab = styled(Tab)(({theme}) => ({
     },
 }));
 
-interface ViewActionsProps {
+interface TapActionsProps {
     value: number,
     handleChange: (event: React.SyntheticEvent, value: number) => void;
     searchTerm: string,
     setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const TapActions: React.FC<ViewActionsProps> = ({value, handleChange, searchTerm, setSearchTerm}) => {
+const TapActions: React.FC<TapActionsProps> = ({value, handleChange, searchTerm, setSearchTerm}) => {
     const {t} = useTranslation();
-    console.log(value)
     return (
         <>
-            <Grid xs={12} md={6}>
+            <Grid item xs={12} md={6}>
                 {value === 2 ? null : (
                     <Box sx={{textAlign: {xs: 'center', md: 'left'}, mb: {xs: 2, md: 0}}}>
                         <Typography variant='body1' sx={{fontWeight: 'bold'}}>{t('Tickets for Bootshaus')}</Typography>
@@ -71,10 +70,10 @@ const TapActions: React.FC<ViewActionsProps> = ({value, handleChange, searchTerm
                         </Paper>)}
                     <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
                         <Typography variant='caption'>{t('view')}</Typography>
-                        <CustomTabs value={value} onChange={handleChange} aria-label="icon tabs example">
-                            <CustomTab icon={<GridViewOutlinedIcon fontSize='small'/>} aria-label="phone"/>
-                            <CustomTab icon={<ListOutlinedIcon/>} aria-label="favorite"/>
-                            <CustomTab icon={<CalendarMonthOutlinedIcon/>} aria-label="person"/>
+                        <CustomTabs value={value} onChange={handleChange}>
+                            <CustomTab icon={<GridViewOutlinedIcon fontSize='small'/>} aria-label="cards"/>
+                            <CustomTab icon={<ListOutlinedIcon fontSize='small'/>} aria-label="list"/>
+                            <CustomTab icon={<CalendarMonthOutlinedIcon fontSize='small'/>} aria-label="person"/>
                         </CustomTabs>
                     </Box>
                 </Box>

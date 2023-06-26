@@ -66,7 +66,7 @@ const Calendar: React.FC<ICalendarProps> = ({data}) => {
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             initialView="dayGridMonth"
             events={calenderEventData}
-            locale={i18n.language === 'de' ? deLocale : enLocale}
+
             headerToolbar={{
                 right: 'dayGridMonth,timeGridWeek,timeGridDay',
                 center: 'prev,title,next',
