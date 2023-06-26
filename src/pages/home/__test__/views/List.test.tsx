@@ -3,9 +3,18 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import ListView from "../../partials/views/List";
 import {ThemeProvider} from "@mui/material/styles";
-import theme from "../../../../config/theme";
+import theme from "../../../../config/material-ui/theme";
 import { IEvent } from '../../interfaces/Events';
-
+jest.mock('react-i18next', () => ({
+    useTranslation: () => {
+        return {
+            t: (str: string) => str,
+            i18n: {
+                changeLanguage: () => new Promise(() => {}),
+            },
+        };
+    },
+}));
 jest.mock('../../../../hooks/useFormattedDate', () => () => {
     return (dateStr: string) => `Formatted Date ${dateStr}`;
 });

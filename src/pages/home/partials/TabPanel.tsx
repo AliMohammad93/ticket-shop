@@ -1,20 +1,16 @@
 import React from 'react';
 import {Box} from "@mui/material";
-interface TabPanelProps {
-    children?: React.ReactNode;
-    index: number;
-    value: number;
-}
-const TabPanel: React.FC<TabPanelProps> = ({children, value, index, ...other}) => {
+import {ITabPanelProps} from "../interfaces/Props";
+const TabPanel: React.FC<ITabPanelProps> = ({children, selectedTap, index, ...other}) => {
     return (
         <div
             role="tabpanel"
-            hidden={value !== index}
+            hidden={selectedTap !== index}
             style={{ width:'100%'}}
             id={`simple-tabpanel-${index}`}
             aria-labelledby={`simple-tab-${index}`}
             {...other}>
-            {value === index && (
+            {selectedTap === index && (
                 <Box sx={{mt:1 }}>
                     {children}
                 </Box>

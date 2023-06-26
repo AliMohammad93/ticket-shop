@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function usePagination<T>(data: T[], itemsPerPage: number) {
     const [currentPage, setCurrentPage] = useState(1);
@@ -23,7 +23,10 @@ function usePagination<T>(data: T[], itemsPerPage: number) {
         setCurrentPage((currentPage) => Math.min(pageNumber, maxPage));
     }
 
-    return { next, prev, jump, currentData, currentPage, maxPage };
+    const hasNextPage = currentPage < maxPage;
+    const hasPrevPage = currentPage > 1;
+
+    return { next, prev, jump, currentData, hasNextPage, hasPrevPage };
 }
 
 export default usePagination;

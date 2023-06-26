@@ -3,7 +3,7 @@ import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import Cards from "../../partials/views/Cards";
 import {ThemeProvider} from "@mui/material/styles";
-import theme from "../../../../config/theme";
+import theme from "../../../../config/material-ui/theme";
 jest.mock('react-i18next', () => ({
     useTranslation: () => {
         return {

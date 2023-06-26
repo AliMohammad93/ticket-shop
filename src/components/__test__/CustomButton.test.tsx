@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import {ThemeProvider} from "@mui/material/styles";
-import theme from "../../config/theme";
+import theme from "../../config/material-ui/theme";
 import CustomButton from "../CustomButton";
 jest.mock('react-i18next', () => ({
     useTranslation: () => {

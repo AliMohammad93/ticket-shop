@@ -1,5 +1,14 @@
 {
-  "home-title": "Tickets for Bootshaus",
-  "view": "View:",
-  "clock": ""
+  "Tickets for Bootshaus": "Tickets for Bootshaus",
+  "view": "view:",
+  "clock": "clock",
+  "Tickets from": "Tickets from",
+  "To the tickets": "To the tickets",
+  "at": "at",
+  "to": "to",
+  "There is no results": "There is no results",
+  "day": "day",
+  "month": "month",
+  "week": "week",
+  "Network error, please try again": "Network error, please try again"
 }
