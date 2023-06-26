@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import LinearProgress from '../LinearProgress';
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "../../config/theme";
+import theme from "../../config/material-ui/theme";
 
 describe('LinearProgress Component', () => {
     it('renders LinearProgress component', () => {

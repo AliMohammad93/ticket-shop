@@ -1,6 +1,6 @@
 import React from 'react';
 import {Grid} from "@mui/material";
-import logo from './../../../assets/logo.jpg'
+import logo from '../../../assets/images/logo.jpg'
 const HomeHeader: React.FC = () => {
     return (
         <Grid item xs={8} sm={5} paddingTop={8}>

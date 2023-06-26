@@ -1,17 +1,14 @@
 import React, {useState, ChangeEvent, Fragment} from "react";
-import {Box, Pagination, Typography, Grid} from "@mui/material";
+import {Box, Pagination, Typography, Grid , CardActions} from "@mui/material";
 import usePagination from "../../../../hooks/usePagination";
-import {IEvent} from "../../interfaces/Events";
 import useFormattedDate from "../../../../hooks/useFormattedDate";
 import useFormattedTime from "../../../../hooks/useFormattedTime";
 import CustomButton from "../../../../components/CustomButton";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import {useTranslation} from "react-i18next";
-import CardActions from "@mui/material/CardActions";
-interface ListProps {
-    data: IEvent[];
-}
-const ListView: React.FC<ListProps> = ({data}) => {
+import {IListProps} from "../../interfaces/Props";
+
+const ListView: React.FC<IListProps> = ({data}) => {
     const {t} = useTranslation();
     let [page, setPage] = useState(1);
     const formatDate = useFormattedDate();
@@ -75,7 +72,7 @@ const ListView: React.FC<ListProps> = ({data}) => {
                         </Grid>
                     </Grid>
                 </Fragment>))}
-            {data.length > 8 && (
+            {data.length > PER_PAGE && (
                 <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 2}}>
                     <Pagination size="small" onChange={handleChange} count={count} page={page} data-testid={'pagination'}/>
                 </Box>

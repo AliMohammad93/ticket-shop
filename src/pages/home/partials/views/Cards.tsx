@@ -1,10 +1,6 @@
-import {IEvent} from "../../interfaces/Events";
 import * as React from 'react';
-import Card from '@mui/material/Card';
+import {Typography, Grid, Box , Card , CardContent , CardMedia} from '@mui/material';
 import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import {Typography, Grid, Box} from '@mui/material';
 import useFormattedDate from "../../../../hooks/useFormattedDate";
 import useFormattedTime from "../../../../hooks/useFormattedTime";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
@@ -13,12 +9,9 @@ import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';
 import {useTranslation} from "react-i18next";
 import CustomButton from "../../../../components/CustomButton";
+import {ICardsProps} from "../../interfaces/Props";
 
-interface CardsProps {
-    data: IEvent[];
-}
-
-const Cards: React.FC<CardsProps> = ({data}) => {
+const Cards: React.FC<ICardsProps> = ({data}) => {
     const {t} = useTranslation();
     const formatDate = useFormattedDate();
     const formatTime = useFormattedTime();
@@ -70,7 +63,7 @@ const Cards: React.FC<CardsProps> = ({data}) => {
                                 </CardContent>
                             </Grid>
                             <Grid item xs={12} md={4}>
-                                <CardActions sx={{justifyContent: {xs: 'center', md: 'flex-end'}}}>
+                                <CardActions sx={{ mt:{xs:0, md:3} ,justifyContent: {xs: 'center', md: 'flex-end'}}}>
                                     <CustomButton shopUrl={event.shopUrl}/>
                                 </CardActions>
                             </Grid>

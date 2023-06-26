@@ -1,4 +1,4 @@
-interface Address {
+export interface IAddress {
     "@type": string;
     streetAddress: string;
     addressLocality: string;
@@ -13,6 +13,6 @@ export interface IEvent {
     endDate: string;
     imageUrl: string;
     shopUrl: string;
-    address: Address;
+    address: IAddress;
     priceFrom: number;
 }

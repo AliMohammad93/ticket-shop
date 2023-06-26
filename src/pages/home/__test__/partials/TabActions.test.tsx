@@ -3,7 +3,7 @@ import {render, screen, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import TapActions from "../../partials/TapActions";
 import {ThemeProvider} from '@mui/material/styles';
-import theme from "../../../../config/theme";
+import theme from "../../../../config/material-ui/theme";
 jest.mock('react-i18next', () => ({
     useTranslation: () => {
         return {
@@ -16,13 +16,13 @@ jest.mock('react-i18next', () => ({
 }));
 const setValue = jest.fn();
 const setSearchTerm = jest.fn();
-const value = 0;
+const selectedTap = 0;
 describe('TapActions Component', () => {
     beforeEach(() => {
         render(
             <ThemeProvider theme={theme}>
                 <TapActions
-                    value={value}
+                    selectedTap={selectedTap}
                     handleChange={(event, newValue) => setValue(newValue)}
                     setSearchTerm={setSearchTerm}
                 />
@@ -52,7 +52,7 @@ it('dose not display "Tickets for Bootshaus" when tap value 2 "on calender view"
     render(
             <ThemeProvider theme={theme}>
                 <TapActions
-                    value={2}
+                    selectedTap={2}
                     handleChange={(event, newValue) => setValue(newValue)}
                     setSearchTerm={setSearchTerm}
                 />
