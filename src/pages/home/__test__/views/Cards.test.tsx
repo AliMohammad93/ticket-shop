@@ -4,8 +4,6 @@ import '@testing-library/jest-dom/extend-expect';
 import Cards from "../../partials/views/Cards";
 import {ThemeProvider} from "@mui/material/styles";
 import theme from "../../../../config/theme";
-
-
 jest.mock('react-i18next', () => ({
     useTranslation: () => {
         return {
@@ -16,14 +14,12 @@ jest.mock('react-i18next', () => ({
         };
     },
 }));
-jest.mock('../../../hooks/useFormattedDate', () => () => {
+jest.mock('../../../../hooks/useFormattedDate', () => () => {
     return (dateStr: string) => `Formatted Date ${dateStr}`;
 });
-jest.mock('../../../hooks/useFormattedTime', () => () => {
+jest.mock('../../../../hooks/useFormattedTime', () => () => {
     return (dateStr: string) => `Formatted Time ${dateStr}`;
 });
-
-
 const mockData = [
     {
         title: 'Test Title',
@@ -47,7 +43,7 @@ describe('Cards Component', () => {
     beforeEach(() => {
         render(
             <ThemeProvider theme={theme}>
-                <Cards data={mockData}/>
+                <Cards data={mockData} />
             </ThemeProvider>
         );
     });
@@ -82,7 +78,7 @@ describe('Cards Component', () => {
 
 it('does not render price when price is not greater than 0', () => {
     const dataWithNoPriceFrom = [{...mockData[0], priceFrom: 0}];
-    render(<ThemeProvider theme={theme}><Cards data={dataWithNoPriceFrom}/></ThemeProvider>);
+    render(<ThemeProvider theme={theme}><Cards data={dataWithNoPriceFrom} /></ThemeProvider>);
     const expectedText = `Tickets from ${mockData[0].priceFrom}€`;
     expect(screen.queryByText(expectedText)).not.toBeInTheDocument();
 });

@@ -1,42 +1,19 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import ListView from "../../partials/views/List";
 import {ThemeProvider} from "@mui/material/styles";
 import theme from "../../../../config/theme";
+import { IEvent } from '../../interfaces/Events';
 
+jest.mock('../../../../hooks/useFormattedDate', () => () => {
+    return (dateStr: string) => `Formatted Date ${dateStr}`;
+});
+jest.mock('../../../../hooks/useFormattedTime', () => () => {
+    return (dateStr: string) => `Formatted Time ${dateStr}`;
+});
 
-jest.mock('react-i18next', () => ({
-    useTranslation: () => {
-        return {
-            t: (str: string) => str,
-            i18n: {
-                changeLanguage: () => new Promise(() => {}),
-            },
-        };
-    },
-}));
-
-jest.mock("../../../hooks/usePagination", () => ({
-    __esModule: true,
-    default: (data: Array<any>) => ({
-        currentData: () => data,
-        jump: jest.fn()
-    }),
-}));
-
-jest.mock("../../../hooks/useFormattedDate", () => ({
-    __esModule: true,
-    default: () => (dateString: string) => new Date(dateString).toISOString().split('T')[1].split('.')[0],
-}));
-
-jest.mock("../../../hooks/useFormattedTime", () => ({
-    __esModule: true,
-    default: () => (dateString: string) => new Date(dateString).toISOString().split('T')[1].split('.')[0],
-}));
-
-const mockData = [
-    // Repeat this object 10 times to test the pagination
+const mockData: IEvent[] = [
     {
         title: 'Test Title',
         imageUrl: 'Test Image',
@@ -59,7 +36,7 @@ describe('ListView Component', () => {
     beforeEach(() => {
         render(
             <ThemeProvider theme={theme}>
-                <ListView data={mockData}/>
+                <ListView data={mockData} />
             </ThemeProvider>
         );
     });
@@ -68,7 +45,45 @@ describe('ListView Component', () => {
         expect(screen.getByText('Test Title')).toBeInTheDocument();
     });
 
- // almost the same test lik cards .........
+    it('renders event startDate', async () => {
+        const regex = new RegExp(`Formatted Date ${mockData[0].startDate}`, "i");
+        const found = await screen.findByText(regex);
+        expect(found).toBeInTheDocument();
+    });
 
+
+    it('renders event time', async () => {
+        const regex = new RegExp(`Formatted Time ${mockData[0].startDate}`, "i");
+        const found = await screen.findByText(regex);
+        expect(found).toBeInTheDocument();
+    });
+
+
+    it('renders event street address and locality', () => {
+        expect(screen.getByText(`${mockData[0].address.streetAddress}, ${mockData[0].address.addressLocality}`)).toBeInTheDocument();
+    });
+
+    it('renders price when priceFrom > 0', () => {
+        const expectedText = `${mockData[0].priceFrom} Euro`;
+        expect(screen.getByText(expectedText)).toBeInTheDocument();
+    });
 });
 
+it('renders Pagination when data length is more than 8', () => {
+    const mockLongData = new Array(9).fill(mockData[0]);
+    render(
+        <ThemeProvider theme={theme}>
+            <ListView data={mockLongData} />
+        </ThemeProvider>
+    );
+    expect(screen.getByTestId('pagination')).toBeInTheDocument();
+});
+
+it('renders "There is no results" when no data', () => {
+    render(
+        <ThemeProvider theme={theme}>
+            <ListView data={[]} />
+        </ThemeProvider>
+    );
+    expect(screen.getByText('There is no results')).toBeInTheDocument();
+});

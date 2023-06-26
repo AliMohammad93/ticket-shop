@@ -12,7 +12,6 @@ import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';
 import {useTranslation} from "react-i18next";
-
 import CustomButton from "../../../../components/CustomButton";
 
 interface CardsProps {
@@ -35,14 +34,7 @@ const Cards: React.FC<CardsProps> = ({data}) => {
                                     height="175"
                                     image={event.imageUrl}
                                     alt={event.title}
-                                    sx={{
-                                        borderRadius: 2,
-                                        objectFit: 'cover',
-                                        mb: {
-                                            xs: 4,
-                                            md: 0
-                                        }
-                                    }}
+                                    sx={{borderRadius: 2, objectFit: 'cover', mb: {xs: 4, md: 0}}}
                                 />
                             </Grid>
                             <Grid item xs={12} md={4}>
@@ -71,18 +63,14 @@ const Cards: React.FC<CardsProps> = ({data}) => {
                                     {event.priceFrom > 0 && (
                                         <Box sx={{display: 'flex', flexDirection: 'row'}} gap={1}>
                                             <ConfirmationNumberOutlinedIcon fontSize='small'/>
-                                            <Typography variant="caption" gutterBottom>{t('Tickets from')} {event.priceFrom}€</Typography>
+                                            <Typography variant="caption"
+                                                        gutterBottom>{t('Tickets from')} {event.priceFrom}€</Typography>
                                         </Box>
                                     )}
                                 </CardContent>
                             </Grid>
                             <Grid item xs={12} md={4}>
-                                <CardActions sx={{
-                                    justifyContent: {
-                                        xs: 'center',
-                                        md: 'flex-end'
-                                    }
-                                }}>
+                                <CardActions sx={{justifyContent: {xs: 'center', md: 'flex-end'}}}>
                                     <CustomButton shopUrl={event.shopUrl}/>
                                 </CardActions>
                             </Grid>
@@ -91,10 +79,9 @@ const Cards: React.FC<CardsProps> = ({data}) => {
                 </Grid>
             ))}
             {data.length === 0 && (
-                <Box sx={{textAlign: 'center', width: '100%', mt:4}}>
+                <Box sx={{textAlign: 'center', width: '100%', mt: 4}}>
                     <Typography>{t('There is no results')}</Typography>
                 </Box>
-
             )}
         </Grid>
     );

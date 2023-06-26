@@ -4,17 +4,6 @@ import '@testing-library/jest-dom/extend-expect';
 import TabPanel from "../../partials/TabPanel";
 import {ThemeProvider} from "@mui/material/styles";
 import theme from "../../../../config/theme";
-jest.mock('react-i18next', () => ({
-    useTranslation: () => {
-        return {
-            t: (str:string) => str,
-            i18n: {
-                changeLanguage: () => new Promise(() => {}),
-            },
-        };
-    },
-}));
-
 describe('TabPanel Component', () => {
     const childText = "Child Component";
 

@@ -15,14 +15,8 @@ const CustomButton: React.FC<CustomButtonProps> = ({shopUrl}) => {
     return (
         <>
             <Button variant="contained"
-                    endIcon={<ArrowForwardIosIcon style={{fontSize: 14}} onClick={handelNavigateToTheShop}/>} sx={{
-                paddingX: 6,
-                pt: 1,
-                border: 1,
-
-                borderColor: 'primary.main',
-                color: 'info.main',
-                '&:hover': {
+                    endIcon={<ArrowForwardIosIcon style={{fontSize: 14}} onClick={handelNavigateToTheShop}/>}
+                    sx={{paddingX: 6, pt: 1, border: 1, borderColor: 'primary.main', color: 'info.main', '&:hover': {
                     backgroundColor: 'secondary.main',
                     color: 'primary.main',
                     border: 1

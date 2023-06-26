@@ -36,11 +36,10 @@ const CustomTab = styled(Tab)(({theme}) => ({
 interface TapActionsProps {
     value: number,
     handleChange: (event: React.SyntheticEvent, value: number) => void;
-    searchTerm: string,
     setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const TapActions: React.FC<TapActionsProps> = ({value, handleChange, searchTerm, setSearchTerm}) => {
+const TapActions: React.FC<TapActionsProps> = ({value, handleChange, setSearchTerm}) => {
     const {t} = useTranslation();
     return (
         <>

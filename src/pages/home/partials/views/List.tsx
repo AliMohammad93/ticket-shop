@@ -1,5 +1,5 @@
 import React, {useState, ChangeEvent, Fragment} from "react";
-import {Box, List, ListItem, Pagination, Card, Typography, CardContent, Grid} from "@mui/material";
+import {Box, Pagination, Typography, Grid} from "@mui/material";
 import usePagination from "../../../../hooks/usePagination";
 import {IEvent} from "../../interfaces/Events";
 import useFormattedDate from "../../../../hooks/useFormattedDate";
@@ -8,13 +8,9 @@ import CustomButton from "../../../../components/CustomButton";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import {useTranslation} from "react-i18next";
 import CardActions from "@mui/material/CardActions";
-
-
 interface ListProps {
     data: IEvent[];
 }
-
-
 const ListView: React.FC<ListProps> = ({data}) => {
     const {t} = useTranslation();
     let [page, setPage] = useState(1);
