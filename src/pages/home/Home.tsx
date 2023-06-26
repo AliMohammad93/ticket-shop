@@ -1,5 +1,5 @@
 import React, {useEffect, useState, SyntheticEvent} from 'react';
-import {Container, Box, Grid , Typography} from "@mui/material";
+import {Container, Box, Grid, Typography} from "@mui/material";
 import HomeHeader from "./partials/HomeHeader";
 import TapActions from "./partials/TapActions";
 import TabPanel from "./partials/TabPanel";
@@ -52,7 +52,8 @@ const Home: React.FC = () => {
                         (
                             <>
                                 {error ? (
-                                    <Typography color="error" textAlign="center" mt={4}>{t('Network error, please try again')}</Typography>
+                                    <Typography color="error" textAlign="center"
+                                                mt={4}>{t('Network error, please try again')}</Typography>
                                 ) : (
                                     <Grid item xs={12} container>
                                         <TabPanel selectedTap={selectedTap} index={0}>

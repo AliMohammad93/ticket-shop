@@ -20,7 +20,7 @@ const TapActions: React.FC<ITapActionsProps> = ({selectedTap, handleChange, setS
                     </Box>)}
             </Grid>
             <Grid item xs={12} md={6}>
-                <Box display="flex" flexDirection="row" alignItems="center" justifyContent="flex-end" gap={1}>
+                <Box gap={1} sx={{display:'flex' , alignItems:'center', justifyContent:{xs:'space-between', md:'flex-end'}}}>
                     {selectedTap === 2 ? null : (
                         <Paper component="form" sx={{
                             display: 'flex',

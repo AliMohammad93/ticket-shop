@@ -72,7 +72,7 @@ const Cards: React.FC<ICardsProps> = ({data}) => {
                 </Grid>
             ))}
             {data.length === 0 && (
-                <Box sx={{textAlign: 'center', width: '100%', mt: 4}}>
+                <Box sx={{textAlign: 'center', width: '100%', mt: 6}}>
                     <Typography>{t('There is no results')}</Typography>
                 </Box>
             )}
