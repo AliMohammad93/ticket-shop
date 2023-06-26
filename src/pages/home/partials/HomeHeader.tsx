@@ -3,7 +3,7 @@ import {Grid} from "@mui/material";
 import logo from './../../../assets/logo.jpg'
 const HomeHeader: React.FC = () => {
     return (
-        <Grid xs={8} sm={5} paddingTop={8}>
+        <Grid item xs={8} sm={5} paddingTop={8}>
             <img
                 src={logo}
                 alt="logo"
